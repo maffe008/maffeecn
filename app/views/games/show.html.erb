@@ -1,0 +1,50 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @game.name %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @game.category %>
+</p>
+
+<p>
+  <strong>Intro:</strong>
+  <%= @game.intro %>
+</p>
+
+<p>
+  <strong>Cover:</strong>
+  <%= @game.cover %>
+</p>
+
+<h2>Reviews</h2>
+<% @game.reviews.each do |review| %>
+    <p>
+      <strong><%= review.title %></strong>
+    </p>
+    <p>
+      <%= review.content %>
+    </p>
+<% end %>
+
+<h2>Add a review:</h2>
+<%= form_for([@game, @game.reviews.build]) do |f| %>
+    <p>
+      <%= f.label :title %><br>
+      <%= f.text_field :title %>
+    </p>
+    <p>
+      <%= f.label :content %><br>
+      <%= f.text_area :content %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+
+<% end %>
+
+<%= link_to 'Edit', edit_game_path(@game) %> |
+<%= link_to 'Back', games_path %>
