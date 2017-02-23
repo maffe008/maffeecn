@@ -20,11 +20,11 @@ class ReviewsController < ApplicationController
     end
 
   protected
-  def book_or_game
-    if params[:book_id]
-      @reviewable = Book.find(params[:book_id])
-    elsif params[:game_id]
-      @reviewable = Game.find(params[:game_id])
+    def book_or_game
+      if params[:book_id]
+        @reviewable = Book.find(params[:book_id])
+      elsif params[:game_id]
+        @reviewable = Game.find(params[:game_id])
+      end
     end
-  end
 end

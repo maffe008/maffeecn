@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  backscore: 1
+  plotscore: 1
+  stylescore: 1
+  book_id: 
+
+two:
+  backscore: 1
+  plotscore: 1
+  stylescore: 1
+  book_id: 

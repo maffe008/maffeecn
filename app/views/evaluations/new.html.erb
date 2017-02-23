@@ -1,0 +1,20 @@
+<h1><%= @book.name %></h1>
+
+<h2>Add a Evaluation:</h2>
+<%= form_for([@book, @book.build_evaluation]) do |f| %>
+    <p>
+      <%= f.label :backscore %><br>
+      <%= f.text_field :backscore %>
+    </p>
+    <p>
+      <%= f.label :plotscore %><br>
+      <%= f.text_field :plotscore %>
+    </p>
+    <p>
+      <%= f.label :stylescore %><br>
+      <%= f.text_field :stylescore %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

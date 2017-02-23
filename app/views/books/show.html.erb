@@ -24,19 +24,50 @@
   <strong>Cover:</strong>
   <%= @book.cover %>
 </p>
+<h2><%= @msg %></h2>
+<% if @evaluation_exist %>
+    <table>
+      <tr>
+        <td>Background</td>
+        <td><strong><%= @evaluation.backscore %></strong> </td>
+      </tr>
+      <tr>
+        <td>Plot</td>
+        <td><strong><%= @evaluation.plotscore %></strong> </td>
+      </tr>
+      <tr>
+        <td>Style</td>
+        <td><strong><%= @evaluation.stylescore %></strong> </td>
+      </tr>
+      <tr>
+        <td>Sum</td>
+        <td><strong><%= @evaluation_sum %></strong> </td>
+      </tr>
+    </table>
+
+    <%= link_to 'Change Evaluation', new_book_evaluations_path(@book) %>
+<% else %>
+
+    <%= link_to 'Create Evaluation', new_book_evaluations_path(@book) %>
+<% end %>
+<p> 
+
+</p>
+
+
 
 <h2>Reviews</h2>
 <% @book.reviews.each do |review| %>
-  <p>
-    <strong><%= review.title %></strong>
-  </p>
-  <p>
-    <%= review.content %>
-  </p>
-  <p>
-    <%= review.reviewable_id %>|
-    <%= review.reviewable_type %>
-  </p>
+    <p>
+      <strong><%= review.title %></strong>
+    </p>
+    <p>
+      <%= review.content %>
+    </p>
+    <p>
+      <%= review.reviewable_id %>|
+      <%= review.reviewable_type %>
+    </p>
 <% end %>
 
 <h2>Add a review:</h2>
@@ -52,7 +83,6 @@
     <p>
       <%= f.submit %>
     </p>
-
 <% end %>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |

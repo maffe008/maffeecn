@@ -5,6 +5,7 @@ Rails.application.routes.draw do
 
   resources :books do
     resource :reviews
+    resource :evaluations
   end
 
   resources :blogs
